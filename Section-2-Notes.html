@@ -1,0 +1,343 @@
+
+
+<h2>Arrow Functions</h2>
+
+<ul>
+    <li>Parenthesis are required for 0 () or two or more arguments (arg1, arg2), but not required for a single argument.</li>
+    <li>A single line arrow function does not explicitly use a return statement, but it is there implicitly.</li>
+</ul>
+
+<pre>
+<code>
+const myFnc = () => {
+  
+}
+</code>
+</pre>
+
+<h3>Example Arrow Function</h3>
+
+<pre><code>
+    const multiply = number => number * 2;
+
+    console.log(multiply(2));
+</code></pre>
+
+<script>
+const multiply = number => number * 2;
+
+console.log(multiply(2));
+</script>
+
+<h2>Exports &amp; Imports</h2>
+
+<pre><code>
+    const person = {
+        name: 'Max'
+    }
+
+    export default person;
+</code></pre>
+
+<h3>
+    Default Export
+</h3>
+
+<ul>
+    <li>default keyword - Means that the export is the default export for the file. </li>
+    <li>When there is only a single export in a file the name of the variable the import is assigned does not need to match the name of the export value, the default keyword specifies what will be imported.</li>
+</ul>
+
+<h3>Named Exports</h3>
+
+<ul>
+    <li>Curly braces are used when there are multiple exports in a file.</li>
+    <li>Must use the exact name used in the export file.</li>
+</ul>
+
+<pre><code>
+    import { baseData } from './utility.js'
+    import { clean } from './utility.js'
+</code></pre>
+
+<h3>Bundled Import</h3>
+
+<ul>
+    <li>Imports all exports in a file and assigns them to a JavaScript object as properties.</li>
+</ul>
+
+<code><pre>
+    import * as bundled from './utility.js'
+</pre></code>
+
+<h2>Classes, Properties &amp; Methods</h2>
+
+<pre><code>
+    class Person {
+        name = 'Max'
+        call = () => {...}
+    }
+</code></pre>
+
+<ul>
+    <li>Class is instantiated with the new keyword.</li>
+    <li>Inheritance is performed using the extends keyword.</li>
+    <li>A constructor() is a default function that is executed when a class is instantiated.</li>
+    <li>The super() keyword executes the parent constructor and must be used in a constructor in the child class when inheriting from another class.</li>
+</ul>
+
+<pre><code>
+
+    class Human {
+
+        // Old Way
+        constructor() {
+            this.gender = 'male';
+        }
+
+        // Next Gen JS
+        gender = 'male';
+
+        // Old Way
+        printGender() {
+            console.log(this.gender);
+        }
+    
+        // Next Gen JS
+        printGender = () => {
+            console.log(this.gender);
+        }
+    }
+
+    class Person extends Human {
+
+        // Old Way
+        constructor() {
+            super();
+            this.name = 'Max';
+            this.gender = 'female';
+        }
+
+        // Next Gen JS
+        name = 'Max';
+        gender = 'female';
+
+        // Old Way
+        printMyName() {
+            console.log(this.name);
+        }
+
+        // Next Gen JS
+        printMyName = () => {
+            console.log(this.name);
+        }
+    }
+
+    const person = new Person();
+    person.printMyName();
+    person.printGender();
+</code></pre>
+
+
+<p><b>Properties Old Way</b></p>
+
+<code><pre>
+    constructor() {
+        this.myProperty = 'value';
+    }
+</pre></code>
+
+<p><b>Properties Next Gen JS</b></p>
+
+<code><pre>
+        myProperty = 'value';
+</pre></code>
+
+<p><b>Methods Old Way</b></p>
+
+<code><pre>
+        myMethod() {...}
+</pre></code>
+
+<p><b>Methods Next Gen JS</b></p>
+
+<code><pre>
+        myMethod = () => {...}
+</pre></code>
+
+<h2>Spread &amp; Rest Operators</h2>
+
+<p> Both the Spread and Rest operators are represented by three dots, the difference is how they are used.</p>
+
+<ul>
+    <li>Spread Operator - splits up</li>
+    <li>Rest Operator - merges</li>
+</ul>
+
+<h3>Spread Operator</h3>
+<p>Used to split up array elements or object properties.</p>
+
+<ul>
+    <li>
+        This can be used to insert an existing array into a new array or insert properties from an object into a new object.
+    </li>
+</ul>
+
+<pre><code>
+    // Using the spread operator to create a new array using the old array and a few new elements.
+    const newArray = [...oldArray, 1, 2]
+</code></pre>
+
+<pre><code>
+    // Using the spread operator to create a new object using the old object and a new property.
+    // If oldObject contains the same property (newProp) being added to the new object, the new property value will take precedence.
+    const newObject = {...oldObject, newProp:5 }
+</code></pre>
+
+<pre><code>
+    // Spread operator pulling out elements from an array
+    const numbers = [1, 2, 3];
+    const newNumbers = [...numbers, 4];
+
+    console.log (newNumbers);
+</code></pre>
+
+
+<pre><code>
+    // Using the spread operator to insert property key/value pairs from the old object into a new object.
+    const person = {
+        name: 'Max'
+    };
+
+    const newPerson = {
+        ...person,
+        age: 28
+    }
+
+    console.log(newPerson)
+</code></pre>
+
+
+<h2>Rest Operator</h2>
+
+<ul>
+    <li>Used in a function argument list.</li>
+</ul>
+
+<pre><code>
+    // The rest operator used to merge a list of function arguments into an array.
+    function sortArgs(...args) {
+        return args.sort()
+    }
+</code></pre>
+
+<pre><code>
+    // Using the rest operator in a function to merge arguments into an array
+    const filter = (...args) => {
+        return args.filter(el => el === 1);
+    }
+
+    console.log(filter(1, 2, 3));
+</code></pre>
+
+<h2>Destructuing</h2>
+
+<p>Extracts array elements or object properties and stores them in variables.</p>
+
+<h3>Array Destructuring</h3>
+
+<pre><code>
+    // Array Destructuring [ele1, ele2, etc.] on the left side of the assignment operator
+    [a, b] = ['Hello', 'Max']
+    console.log(a); // Hello
+    console.log(b); // Max
+</code></pre>
+
+<h3>Object Destructuring</h3>
+<p>The order defines which property is taken.</p>
+
+<pre><code>
+    {name} = {name: 'Max', age: 28}
+    console.log(name) // Max
+    console.log(age) // undefined because it's not pulled out of the original object.
+</code></pre>
+
+<p>The values from the original array are assigned to variables in order with comma+space being used to skip an array element.</p>
+
+<pre><code>
+    const numbers = [1, 2, 3];
+    [num1, , num3] = numbers;  
+    console.log(num1, num3)
+</code></pre>
+
+<h2>Reference and Primitive Types</h2>
+
+<p>Primitives such as undefined, null, booleans, strings and numbers are passed by value, so any value that is copied will exist in a separate memory space as the original and can be assigned a different value.</p>
+
+<p>Strings are primitives in JavaScript, but are reference types in most languages.</p>
+
+<p>Objects and arrays are reference Types</p>
+
+<code><pre>
+    const person = {
+        name: 'Max';
+    };
+
+    // Assigning an object or array to another object or array will only create a pointer to the original array.
+    const secondPerson = person;
+
+    // Changing the name property for the person object will also change the name property of the secondPerson object.
+    person.name = 'Manu';
+
+    // This will return Manu because the secondPerson object still is just a reference to the person object.
+    console.log(secondPerson); 
+</pre></code>
+
+<h3>Copying an object into a completely new object and not a reference to the original object.</h3>
+
+<p>To copy an object without creating a reference to the existig object, use the spread operator to drop the property values into a new object.</p>
+
+<code><pre>
+    // Properties of the object can still be changed even though the object is assigned to a constant.
+    const person = {
+        name: 'Max';
+    };
+
+    const secondPerson = {
+        ...person
+    };
+
+    person.name = 'Manu';
+
+    // This will return Max because the secondPerson object is a completely different object and not a reference to the person object.
+    console.log(secondPerson); 
+</pre></code>
+
+<h3>.map() Method</h3>
+
+<p>Takes a function as an argument and executes it on each element in an array.</p>
+
+<code><pre>
+    const numbers = [1, 2, 3];
+
+    const doubleNumArray = numbers.map((num) => {
+        return num * 2;
+    });
+
+    console.log(numbers);  // returns [1, 2, 3]
+    console.log(doubleNumArray);  // returns [2, 4, 6]
+</pre></code>
+
+<h3>Important Array Methods</h3>
+
+<ul>
+    <li>map()  => https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map</li>
+    <li>find()  => https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find</li>
+    <li>findIndex()  => https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex</li>
+    <li>filter()  => https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter</li>
+    <li>reduce()  => https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce?v=b</li>
+    <li>concat()  => https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat?v=b</li>
+    <li>slice()  => https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice</li>
+    <li>splice()  => https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice</li>
+</ul>
+
