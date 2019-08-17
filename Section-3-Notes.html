@@ -1,0 +1,211 @@
+<h3>Dependency Management Tools</h3>
+
+<ul>
+    <li>Node Packet Manager (NPM)</li>
+    <li>Yarn</li>
+</ul>
+
+<h3>Bundlers</h3>
+
+<ul>
+    <li>Webpack</li>
+</ul>
+
+<p>Installing Webpack</p>
+
+<code><pre>
+    npm install --save-dev webpack
+    npm install --save-dev webpack-cli
+</pre></code>
+
+<h3>Compiler or Transpiler</h3>
+
+<ul>
+    <li>Babel</li>
+</ul>
+
+<h3>Development Server</h3>
+
+
+<h3>create-react-app</h3>
+
+<p>A tool for creating react applications with no build configuration.</p>
+
+<h3>Installing create-react-app</h3>
+
+<code><pre>
+    npm install -g create-react-app
+</pre></code>
+
+<h3>Creating a new React application</h3>
+
+<code><pre>
+    create-react-app my-app
+    cd my-app
+    npm start
+</pre></code>
+
+<p>Open http://localhost:3000/</p>
+
+<h3>Creating a minified bundle.</h3>
+
+<p>npm run build</p>
+
+<h3>Setting up the react-complete-guide project</h3>
+
+<code><pre>
+    create-react-app react-complete-guide --scripts-version 1.1.5
+</pre></code>
+
+<h3>Navigate to the new folder</h3>
+
+<code><pre>
+    cd react-complete-guide/
+</pre></code>
+
+<h3>Start the Project</h3>
+
+<code><pre>
+    npm start
+</pre></code>
+
+<p>Be sure to leave this running while working on the application so updates are performed automatically.</p>
+
+<h3>package.json</h3>
+
+<p>Contains a list of general dependencies of the package.</p>
+
+<h3>react-scripts</h3>
+
+<p>This is a configuration dependency used by create-react-app.</p>
+
+<h3>node_modules folder</h3>
+
+<p>Holds all dependencies and subdependencies for the project.</p>
+
+<h3>public/index.html</h3>
+
+<p>This is the single HTML page that serves as an entry point for the SPA application.  It contains a div tag with the id of root that is meant to serve as a root element for React components.</p>
+
+<h3>manifest.json</h3>
+
+<p>Is used to define metadata about the application.</p>
+
+<h3>src folder</h3>
+
+<p>This is the folder that contains files that make up the application.</p>
+
+<h3>index.js</h3>
+
+<p>Has access to the root element in the DOM.  Recall that root was set in index.html.</p>
+
+<h3>App.js</h3>
+
+<p>This is the boilerplate React component that is created by default</p>
+
+<ul>
+    <li>Class based components are sometimes called smart components or container components.</li>
+</ul>
+
+<h3>index.css</h3>
+
+<p>CSS file for applying styles globally.</p>
+
+<h3>registerServiceWorker.js</h3>
+
+<p>Pre-caches script files.  Leave as is.</p>
+
+<h3>App.test.js</h3>
+
+<p>Used for configuring test files.</p>
+
+<h3>export default App</h3>
+
+<p>export default is used when exporting a single component, which in this case is called 'App'.</p>
+
+<h3>React.createElement()</h3>
+
+<p>A method for rendering an element that takes three or more arguments, the first being the html element, the second being the configuration element (often null), and the third is the children elements.</p>
+
+<p>Typically elements are rendered using JSX, not the React.createElement() method.</p>
+
+<h3>className</h3>
+
+<p>In JSX, CSS styling is added using className, not class.  This is because class is a reserved word in JavaScript.</p>
+
+
+<h3>JSX Best practices</h3>
+
+<ul>
+    <li>JSX must have a single root element.</li>
+    <li>Folders and files containing JSX components begin with capital letters.</li>
+    <li>All elements starting with lower case are reserved for native HTML elements.</li>
+    <li>Only allows embedding of JavaScript expressions.</li>
+</ul>
+
+<h3>props</h3>
+<p>The properties that are added onto a component.</p>
+
+<h3>Children</h3>
+<p>Anything that is between the open and clising tags of the element.</p>
+
+<h3>state</h3>
+<ul>
+    <li>Only availble inside class based components (extends Component).</li>
+    <li>If state changes, React will update the DOM and re-render all components.</li>
+</ul>
+
+<h3>React Event Handlers</h3>
+
+<ul>
+    <li>In React, event handlers are camel case, such as onClick instead of onclick.</li>
+    <li>It's a convention to name event handler functions ending with 'Handler' such as switchNameHandler().</li>
+    <li>parenthesis are left off of event handler function calls because they would cause the function to be called immediately instead of waiting for the event.</li>
+</ul>
+
+<h3>useState</h3>
+
+<ul>
+    <li>Allows the use of state in a functional component.</li>
+</ul>
+
+<h3>useState</h3>
+
+<ul>
+    <li>Allows state to be managed in a functional component.</li>
+    <li>Returns an array with two elements.</li>
+    <li>The first element returned is the current state.</li>
+    <li>The second element is a function that allows us to update the state such that React is aware of it and will re-render the component.</li>
+    <li>Can't use 'this' when using useState because it only exists in class based components.</li>
+    <li>useState (React Hooks) will not merge existing state with the new state.  It will just overwrite the old state with the new state in entirety.</li>
+    <li>useState does not need to pass an object, it could be a string, array, number, boolean, etc.</li>
+    <li>There can be however many useState() calls in a page, referring to different state objects.</li>
+</ul>
+
+<h3>Passing Method References Between Components</h3>
+<p>This is a pattern that is used to call a method in one component from another component.</p>
+
+Pass a reference to a handler as a property to a component.
+
+<h3>Two ways to pass data</h3>
+
+<ul>
+    <li>The first is to call bind(this) on the name of the function that is passed as a reference (this is more performant and should be used when possible)</li>
+    <li>The second uses an arrow function like so: onClick={() => this.myFunctionHandler('myNewValue')}</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
