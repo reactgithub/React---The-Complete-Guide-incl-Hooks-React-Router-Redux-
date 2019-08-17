@@ -1,0 +1,12 @@
+/* CSS is global not scoped to the component */
+/* It is convention to name the CSS style after the component */
+/* CSS must be imported! */
+
+.Person {
+    width: 60%;
+    margin: auto;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 3px #ccc;
+    padding: 16px;
+    text-align: center;
+}
